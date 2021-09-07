@@ -1,9 +1,8 @@
-function sayHello() {
-  return function () {
-    return "hello there im a anonymous fucntion";
-  };
-}
+let input = " Javascript ";
+let output = "<div>" + input.trim() + "</div>";
 
-let fnref = sayHello();
-let msg = fnref();
-console.log(msg);
+const trim = (str) => str.trim();
+
+const renderOutput = (str) => `<div>${str}</div>`;
+
+console.log(renderOutput("Javascript"));
