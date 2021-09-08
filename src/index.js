@@ -1,7 +1,12 @@
+import { BUG_ADDED, BUG_REMOVED } from "./actionTypes";
 import store from "./store";
 
+store.subscribe(() => {
+  console.log("Store Changed", store.getState());
+});
+
 store.dispatch({
-  type: "bugAdded",
+  type: BUG_ADDED,
   payload: {
     description: "Bugg 1",
   },
@@ -10,7 +15,7 @@ store.dispatch({
 console.log(store.getState());
 
 store.dispatch({
-  type: "bugRemoved",
+  type: BUG_REMOVED,
   payload: {
     id: 1,
   },
