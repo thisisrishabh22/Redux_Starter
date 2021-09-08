@@ -1,3 +1,4 @@
+import { produce } from "immer";
 const { Map } = require("immutable");
 const { indexOf } = require("lodash");
 
@@ -46,3 +47,16 @@ function publish(book) {
 book = publish(book);
 
 console.log(book.toJS());
+
+// Immer Js
+let immerBook = { title: "Harry Porter" };
+
+function immerPublish(book) {
+  return produce(book, (draftBook) => {
+    draftBook.isPublished = true;
+  });
+}
+
+let updatedImmutable = immerPublish(immerBook);
+
+console.log(updatedImmutable);
