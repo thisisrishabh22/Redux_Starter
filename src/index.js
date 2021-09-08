@@ -1,3 +1,4 @@
+const { Map } = require("immutable");
 const { indexOf } = require("lodash");
 
 const person = {
@@ -34,3 +35,14 @@ const updated = newNumbers.map((n) => (n == 2 ? 20 : n));
 console.log(newNumbers);
 console.log(removed);
 console.log(updated);
+
+// Immutable Js
+let book = Map({ title: "Harry Porter" });
+
+function publish(book) {
+  return book.set("isPublished", true);
+}
+
+book = publish(book);
+
+console.log(book.toJS());
