@@ -1,3 +1,5 @@
+const { indexOf } = require("lodash");
+
 const person = {
   name: "John",
   address: {
@@ -13,3 +15,22 @@ const newPerson = Object.assign({
 });
 // newPerson.address.city = "New York"; // Original property will also be changed
 console.log(newPerson);
+
+const numbers = [1, 2, 3];
+
+// Adding
+const indexOfNumbers = numbers.indexOf(2);
+const newNumbers = [
+  ...numbers.slice(0, indexOfNumbers),
+  4,
+  ...numbers.slice(indexOfNumbers),
+];
+
+// Removing
+const removed = numbers.filter((n) => n != 2);
+
+const updated = newNumbers.map((n) => (n == 2 ? 20 : n));
+
+console.log(newNumbers);
+console.log(removed);
+console.log(updated);
